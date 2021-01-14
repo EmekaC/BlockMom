@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<JSON>
+    <resourceType>Patient</resourceType>
+    <id>BlockMoM</id>
+    <text>
+        <status>generated</status>
+        <div>&lt;div xmlns="http://www.w3.org/1999/xhtml"> &lt;p>A maternity health information for
+            a pregnant woman.&lt;/p> &lt;p>LMP is 1st July, 2020. The woman has plan to take
+            prenatal Iron and Folic acid, scheduled first antenatal, and plan for the second
+            antenatal, subsequent and delivery &lt;/p> &lt;/div></div>
+    </text>
+    <identifier>
+        <array>
+            <use>usual</use>
+            <type>
+                <coding>
+                    <array>
+                        <system>http://blockmom.com/CodeSystem/v1</system>
+                        <code>active</code>
+                    </array>
+                </coding>
+            </type>
+            <system>urn:oid:1.3.12.246.576.315.1.6</system>
+            <value>Patient/94d9ae7112f9d8ecd81c2abbbfcdf810221f1db347acd3e2171f8bb4878bd155</value>
+            <period>
+                <start>2020-10-11</start>
+            </period>
+            <assigner>
+                <display>Digitalcare Tech.</display>
+            </assigner>
+        </array>
+    </identifier>
+    <active>true</active>
+    <name>
+        <use>official</use>
+        <family>Chukwu</family>
+        <given>Ngozi</given>
+        <given>Edidiong</given>
+    </name>
+    <name>
+        <use>usual</use>
+        <given>
+            <array>Ngozi</array>
+        </given>
+    </name>
+    <name>
+        <use>maiden</use>
+        <family>Bassey</family>
+        <given>Ngozi</given>
+        <given>Edidiong</given>
+        <period>
+            <end>2030</end>
+        </period>
+    </name>
+    <telecom>
+        <use>home</use>
+    </telecom>
+    <telecom>
+        <system>phone</system>
+        <value>(234) 803 333 4444</value>
+        <use>mobile</use>
+        <rank>1</rank>
+    </telecom>
+    <telecom>
+        <system>phone</system>
+        <value>(234) 802 341 3333</value>
+        <use>work</use>
+        <rank>2</rank>
+    </telecom>
+    <telecom>
+        <system>phone</system>
+        <value>(232) 2222 3354</value>
+        <use>old</use>
+        <period>
+            <end>2015</end>
+        </period>
+    </telecom>
+    <gender>female</gender>
+    <birthDate>1984-10-29</birthDate>
+    <_birthDate>
+        <extension>
+            <array>
+                <url>http://hl7.org/fhir/StructureDefinition/patient-birthTime</url>
+                <valueDateTime>1984-10-29T13:50:40-01:00</valueDateTime>
+            </array>
+        </extension>
+    </_birthDate>
+    <deceasedBoolean>false</deceasedBoolean>
+    <address>
+        <array>
+            <use>home</use>
+            <type>both</type>
+            <text>12 New layout</text>
+            <line>
+                <array>AI</array>
+            </line>
+            <city>Abakaliki</city>
+            <district/>
+            <state>Ebonyi</state>
+            <postalCode/>
+            <period>
+                <start>1984-10-29</start>
+            </period>
+        </array>
+    </address>
+    <contained>
+        <resourceType>Condition</resourceType>
+        <id>BlockMoM1</id>
+        <clinicalStatus>
+            <coding>
+                <array>
+                    <system>https://icd.who.int/browse10/2016/en#</system>
+                    <code>active</code>
+                </array>
+            </coding>
+        </clinicalStatus>
+        <verificationStatus>
+            <coding>
+                <array>
+                    <system>https://icd.who.int/browse10/2016/en#</system>
+                    <code>confirmed</code>
+                </array>
+            </coding>
+        </verificationStatus>
+        <code>
+            <text>Prolonged second stage (of labour)</text>
+            <value>O63.1</value>
+        </code>
+        <subject>
+            <reference>Patient/94d9ae7112f9d8ecd81c2abbbfcdf810221f1db347acd3e2171f8bb4878bd155</reference>
+            <display>Ngozi Chukwu</display>
+        </subject>
+    </contained>
+    <contained>
+        <resourceType>Practitioner</resourceType>
+        <id>NMCN018/57102bfcdf81878bd1512f9d894d9aeecd81c2abb347acd3e2171f8bb421f1db</id>
+        <name>
+            <array>
+                <family>Midwife</family>
+                <given>
+                    <array>Ngozi</array>
+                </given>
+            </array>
+        </name>
+    </contained>
+    <activity>
+        <reference>
+            <display>Urgent referral to General hospital</display>
+        </reference>
+    </activity>
+    <activity>
+        <extension>
+            <array>
+                <valueUri>http://blockmom.com/fhir/careplan/1andetails</valueUri>
+            </array>
+        </extension>
+        <detail>
+            <kind>Encounter</kind>
+            <code>
+                <coding>
+                    <array>
+                        <system>http://blockmom.com/mySystem</system>
+                        <code>1an</code>
+                    </array>
+                </coding>
+                <text>First Antenatal encounter</text>
+            </code>
+            <status>active</status>
+            <doNotPerform>false</doNotPerform>
+            <scheduledTiming>
+                <repeat>
+                    <boundsPeriod>
+                        <start>2019-06-15</start>
+                        <end>2019-06-16</end>
+                    </boundsPeriod>
+                </repeat>
+            </scheduledTiming>
+            <performer>
+                <array>
+                    <reference>NMCN018/57102bfcdf81878bd1512f9d894d9aeecd81c2abb347acd3e2171f8bb421f1db</reference>
+                    <display>Ngozi Midwife</display>
+                </array>
+            </performer>
+            <description>The first antenatal encounter. </description>
+        </detail>
+    </activity>
+    <activity>
+        <detail>
+            <kind>Appointment</kind>
+            <code>
+                <coding>
+                    <array>
+                        <system>http://blockmom.com/mySystem</system>
+                        <code>an</code>
+                    </array>
+                </coding>
+                <text>Follow-up Antenatal encounter</text>
+            </code>
+            <status>scheduled</status>
+            <doNotPerform>false</doNotPerform>
+            <scheduledTiming>
+                <repeat>
+                    <boundsPeriod>
+                        <start>2019-07-17</start>
+                        <end>2019-07-24</end>
+                    </boundsPeriod>
+                </repeat>
+            </scheduledTiming>
+            <performer>
+                <array>
+                    <reference>NMCN018/57102bfcdf81878bd1512f9d894d9aeecd81c2abb347acd3e2171f8bb421f1db</reference>
+                    <display>Ngozi Midwife</display>
+                </array>
+            </performer>
+            <description>The Second antenatal encounter has been scheduled. This is where a detailed
+                physical examination is performed and the pregnanacy discussed with the
+                mother-to-be.</description>
+        </detail>
+    </activity>
+</JSON>

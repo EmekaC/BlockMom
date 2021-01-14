@@ -1,0 +1,454 @@
+{
+    "$schema": "https://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+        "resourceType": {
+            "type": "string",
+            "default": ""
+        },
+        "id": {
+            "type": "string",
+            "default": ""
+        },
+        "text": {"$ref": "#/definitions/text_type"},
+        "identifier": {"$ref": "#/definitions/identifier_type"},
+        "active": {
+            "type": "boolean",
+            "default": false
+        },
+        "name": {"$ref": "#/definitions/name_type"},
+        "telecom": {"$ref": "#/definitions/telecom_type"},
+        "gender": {
+            "type": "string",
+            "default": ""
+        },
+        "birthDate": {
+            "type": "string",
+            "default": ""
+        },
+        "_birthDate": {"$ref": "#/definitions/_birthDate_type"},
+        "deceasedBoolean": {
+            "type": "boolean",
+            "default": false
+        },
+        "address": {"$ref": "#/definitions/address_type"},
+        "contained": {"$ref": "#/definitions/contained_type"},
+        "activity": {"$ref": "#/definitions/activity_type"}
+    },
+    "definitions": {
+        "text_type": {
+            "type": "object",
+            "properties": {
+                "status": {
+                    "type": "string",
+                    "default": ""
+                },
+                "div": {
+                    "type": "string",
+                    "default": ""
+                }
+            }
+        },
+        "coding_type": {
+            "type": "array",
+            "minItems": 0,
+            "items": {
+                "type": "object",
+                "properties": {
+                    "system": {
+                        "type": "string",
+                        "format": "uri",
+                        "default": ""
+                    },
+                    "code": {
+                        "type": "string",
+                        "default": ""
+                    }
+                },
+                "required": [
+                    "system",
+                    "code"
+                ]
+            }
+        },
+        "type_type": {
+            "type": "object",
+            "properties": {
+                "coding": {"$ref": "#/definitions/coding_type"}
+            }
+        },
+        "period_type": {
+            "type": "object",
+            "properties": {
+                "start": {
+                    "type": "string",
+                    "default": ""
+                }
+            }
+        },
+        "assigner_type": {
+            "type": "object",
+            "properties": {
+                "display": {
+                    "type": "string",
+                    "default": ""
+                }
+            }
+        },
+        "identifier_type": {
+            "type": "array",
+            "minItems": 0,
+            "items": {
+                "type": "object",
+                "properties": {
+                    "use": {
+                        "type": "string",
+                        "default": ""
+                    },
+                    "type": {"$ref": "#/definitions/type_type"},
+                    "system": {
+                        "type": "string",
+                        "default": ""
+                    },
+                    "value": {
+                        "type": "string",
+                        "default": ""
+                    },
+                    "period": {"$ref": "#/definitions/period_type"},
+                    "assigner": {"$ref": "#/definitions/assigner_type"}
+                },
+                "required": [
+                    "period",
+                    "system",
+                    "use",
+                    "assigner",
+                    "type",
+                    "value"
+                ]
+            }
+        },
+        "given_type": {
+            "type": "array",
+            "minItems": 0,
+            "items": {
+                "type": "string",
+                "default": ""
+            }
+        },
+        "period2_type": {
+            "type": "object",
+            "properties": {
+                "end": {
+                    "type": "string",
+                    "default": ""
+                }
+            }
+        },
+        "name_type": {
+            "type": "array",
+            "minItems": 0,
+            "items": {
+                "type": "object",
+                "properties": {
+                    "use": {
+                        "type": "string",
+                        "default": ""
+                    },
+                    "family": {
+                        "type": "string",
+                        "default": ""
+                    },
+                    "given": {"$ref": "#/definitions/given_type"},
+                    "period": {"$ref": "#/definitions/period2_type"}
+                },
+                "required": [
+                    "given",
+                    "use"
+                ]
+            }
+        },
+        "telecom_type": {
+            "type": "array",
+            "minItems": 0,
+            "items": {
+                "type": "object",
+                "properties": {
+                    "use": {
+                        "type": "string",
+                        "default": ""
+                    },
+                    "system": {
+                        "type": "string",
+                        "default": ""
+                    },
+                    "value": {
+                        "type": "string",
+                        "default": ""
+                    },
+                    "rank": {
+                        "type": "integer",
+                        "default": 0
+                    },
+                    "period": {"$ref": "#/definitions/period2_type"}
+                },
+                "required": ["use"]
+            }
+        },
+        "extension_type": {
+            "type": "array",
+            "minItems": 0,
+            "items": {
+                "type": "object",
+                "properties": {
+                    "url": {
+                        "type": "string",
+                        "format": "uri",
+                        "default": ""
+                    },
+                    "valueDateTime": {
+                        "type": "string",
+                        "format": "date-time",
+                        "default": ""
+                    }
+                },
+                "required": [
+                    "valueDateTime",
+                    "url"
+                ]
+            }
+        },
+        "_birthDate_type": {
+            "type": "object",
+            "properties": {
+                "extension": {"$ref": "#/definitions/extension_type"}
+            }
+        },
+        "address_type": {
+            "type": "array",
+            "minItems": 0,
+            "items": {
+                "type": "object",
+                "properties": {
+                    "use": {
+                        "type": "string",
+                        "default": ""
+                    },
+                    "type": {
+                        "type": "string",
+                        "default": ""
+                    },
+                    "text": {
+                        "type": "string",
+                        "default": ""
+                    },
+                    "line": {"$ref": "#/definitions/given_type"},
+                    "city": {
+                        "type": "string",
+                        "default": ""
+                    },
+                    "district": {
+                        "type": "string",
+                        "default": ""
+                    },
+                    "state": {
+                        "type": "string",
+                        "default": ""
+                    },
+                    "postalCode": {
+                        "type": "string",
+                        "default": ""
+                    },
+                    "period": {"$ref": "#/definitions/period_type"}
+                },
+                "required": [
+                    "period",
+                    "city",
+                    "use",
+                    "line",
+                    "district",
+                    "postalCode",
+                    "text",
+                    "state",
+                    "type"
+                ]
+            }
+        },
+        "code_type": {
+            "type": "object",
+            "properties": {
+                "text": {
+                    "type": "string",
+                    "default": ""
+                },
+                "value": {
+                    "type": "string",
+                    "default": ""
+                }
+            }
+        },
+        "subject_type": {
+            "type": "object",
+            "properties": {
+                "reference": {
+                    "type": "string",
+                    "default": ""
+                },
+                "display": {
+                    "type": "string",
+                    "default": ""
+                }
+            }
+        },
+        "name2_type": {
+            "type": "array",
+            "minItems": 0,
+            "items": {
+                "type": "object",
+                "properties": {
+                    "family": {
+                        "type": "string",
+                        "default": ""
+                    },
+                    "given": {"$ref": "#/definitions/given_type"}
+                },
+                "required": [
+                    "given",
+                    "family"
+                ]
+            }
+        },
+        "contained_type": {
+            "type": "array",
+            "minItems": 0,
+            "items": {
+                "type": "object",
+                "properties": {
+                    "resourceType": {
+                        "type": "string",
+                        "default": ""
+                    },
+                    "id": {
+                        "type": "string",
+                        "default": ""
+                    },
+                    "clinicalStatus": {"$ref": "#/definitions/type_type"},
+                    "verificationStatus": {"$ref": "#/definitions/type_type"},
+                    "code": {"$ref": "#/definitions/code_type"},
+                    "subject": {"$ref": "#/definitions/subject_type"},
+                    "name": {"$ref": "#/definitions/name2_type"}
+                },
+                "required": [
+                    "id",
+                    "resourceType"
+                ]
+            }
+        },
+        "extension2_type": {
+            "type": "array",
+            "minItems": 0,
+            "items": {
+                "type": "object",
+                "properties": {
+                    "valueUri": {
+                        "type": "string",
+                        "format": "uri",
+                        "default": ""
+                    }
+                },
+                "required": ["valueUri"]
+            }
+        },
+        "code2_type": {
+            "type": "object",
+            "properties": {
+                "coding": {"$ref": "#/definitions/coding_type"},
+                "text": {
+                    "type": "string",
+                    "default": ""
+                }
+            }
+        },
+        "boundsPeriod_type": {
+            "type": "object",
+            "properties": {
+                "start": {
+                    "type": "string",
+                    "default": ""
+                },
+                "end": {
+                    "type": "string",
+                    "default": ""
+                }
+            }
+        },
+        "repeat_type": {
+            "type": "object",
+            "properties": {
+                "boundsPeriod": {"$ref": "#/definitions/boundsPeriod_type"}
+            }
+        },
+        "scheduledTiming_type": {
+            "type": "object",
+            "properties": {
+                "repeat": {"$ref": "#/definitions/repeat_type"}
+            }
+        },
+        "performer_type": {
+            "type": "array",
+            "minItems": 0,
+            "items": {
+                "type": "object",
+                "properties": {
+                    "reference": {
+                        "type": "string",
+                        "default": ""
+                    },
+                    "display": {
+                        "type": "string",
+                        "default": ""
+                    }
+                },
+                "required": [
+                    "reference",
+                    "display"
+                ]
+            }
+        },
+        "detail_type": {
+            "type": "object",
+            "properties": {
+                "kind": {
+                    "type": "string",
+                    "default": ""
+                },
+                "code": {"$ref": "#/definitions/code2_type"},
+                "status": {
+                    "type": "string",
+                    "default": ""
+                },
+                "doNotPerform": {
+                    "type": "boolean",
+                    "default": false
+                },
+                "scheduledTiming": {"$ref": "#/definitions/scheduledTiming_type"},
+                "performer": {"$ref": "#/definitions/performer_type"},
+                "description": {
+                    "type": "string",
+                    "default": ""
+                }
+            }
+        },
+        "activity_type": {
+            "type": "array",
+            "minItems": 0,
+            "items": {
+                "type": "object",
+                "properties": {
+                    "reference": {"$ref": "#/definitions/assigner_type"},
+                    "extension": {"$ref": "#/definitions/extension2_type"},
+                    "detail": {"$ref": "#/definitions/detail_type"}
+                }
+            }
+        }
+    }
+}

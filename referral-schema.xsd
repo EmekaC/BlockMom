@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="JSON">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="resourceType"/>
+        <xs:element ref="id"/>
+        <xs:element ref="text"/>
+        <xs:element ref="identifier"/>
+        <xs:element ref="active"/>
+        <xs:element maxOccurs="unbounded" ref="name"/>
+        <xs:element maxOccurs="unbounded" ref="telecom"/>
+        <xs:element ref="gender"/>
+        <xs:element ref="birthDate"/>
+        <xs:element ref="_birthDate"/>
+        <xs:element ref="deceasedBoolean"/>
+        <xs:element ref="address"/>
+        <xs:element maxOccurs="unbounded" ref="contained"/>
+        <xs:element maxOccurs="unbounded" ref="activity"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="identifier">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="array"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="active" type="xs:boolean"/>
+  <xs:element name="telecom">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:sequence minOccurs="0">
+          <xs:element ref="system"/>
+          <xs:element ref="value"/>
+        </xs:sequence>
+        <xs:element ref="use"/>
+        <xs:choice minOccurs="0">
+          <xs:element ref="period"/>
+          <xs:element ref="rank"/>
+        </xs:choice>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="rank" type="xs:integer"/>
+  <xs:element name="gender" type="xs:NCName"/>
+  <xs:element name="birthDate" type="xs:date"/>
+  <xs:element name="_birthDate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="extension"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deceasedBoolean" type="xs:boolean"/>
+  <xs:element name="address">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="array"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="contained">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="resourceType"/>
+        <xs:element ref="id"/>
+        <xs:choice>
+          <xs:element ref="name"/>
+          <xs:sequence>
+            <xs:element ref="clinicalStatus"/>
+            <xs:element ref="verificationStatus"/>
+            <xs:element ref="code"/>
+            <xs:element ref="subject"/>
+          </xs:sequence>
+        </xs:choice>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="clinicalStatus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="coding"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="verificationStatus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="coding"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="subject">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="reference"/>
+        <xs:element ref="display"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="activity">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="extension"/>
+        <xs:choice>
+          <xs:element ref="reference"/>
+          <xs:element ref="detail"/>
+        </xs:choice>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="detail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="kind"/>
+        <xs:element ref="code"/>
+        <xs:element ref="status"/>
+        <xs:element ref="doNotPerform"/>
+        <xs:element ref="scheduledTiming"/>
+        <xs:element ref="performer"/>
+        <xs:element ref="description"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="kind" type="xs:NCName"/>
+  <xs:element name="doNotPerform" type="xs:boolean"/>
+  <xs:element name="scheduledTiming">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="repeat"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="repeat">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="boundsPeriod"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="boundsPeriod">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="start"/>
+        <xs:element ref="end"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="performer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="array"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="description" type="xs:string"/>
+  <xs:element name="resourceType" type="xs:NCName"/>
+  <xs:element name="id" type="xs:string"/>
+  <xs:element name="text">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="status"/>
+        <xs:element ref="div"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="div" type="xs:string"/>
+  <xs:element name="array">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="code"/>
+        <xs:element ref="display"/>
+        <xs:element ref="family"/>
+        <xs:element ref="given"/>
+        <xs:element ref="period"/>
+        <xs:element ref="reference"/>
+        <xs:element ref="system"/>
+        <xs:element ref="text"/>
+        <xs:element ref="use"/>
+        <xs:element ref="value"/>
+        <xs:element ref="assigner"/>
+        <xs:element ref="city"/>
+        <xs:element ref="district"/>
+        <xs:element ref="line"/>
+        <xs:element ref="postalCode"/>
+        <xs:element ref="state"/>
+        <xs:element ref="type"/>
+        <xs:element ref="url"/>
+        <xs:element ref="valueDateTime"/>
+        <xs:element ref="valueUri"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="assigner">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="display"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="city" type="xs:NCName"/>
+  <xs:element name="district">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="line">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="array"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="postalCode">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="state" type="xs:NCName"/>
+  <xs:element name="type">
+    <xs:complexType mixed="true">
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="coding"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="url" type="xs:anyURI"/>
+  <xs:element name="valueDateTime" type="xs:dateTime"/>
+  <xs:element name="valueUri" type="xs:anyURI"/>
+  <xs:element name="name">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="array"/>
+        <xs:element minOccurs="0" ref="use"/>
+        <xs:element minOccurs="0" ref="family"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="given"/>
+        <xs:element minOccurs="0" ref="period"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="system" type="xs:anyURI"/>
+  <xs:element name="value" type="xs:string"/>
+  <xs:element name="use" type="xs:NCName"/>
+  <xs:element name="period">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element ref="end"/>
+        <xs:element ref="start"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="extension">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="array"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="coding">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="array"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="code">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="coding"/>
+        <xs:element ref="text"/>
+        <xs:element ref="value"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="reference">
+    <xs:complexType mixed="true">
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="display"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="display" type="xs:string"/>
+  <xs:element name="status" type="xs:NCName"/>
+  <xs:element name="start" type="xs:date"/>
+  <xs:element name="end" type="xs:NMTOKEN"/>
+  <xs:element name="given">
+    <xs:complexType mixed="true">
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="array"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="family" type="xs:NCName"/>
+</xs:schema>

@@ -1,0 +1,226 @@
+{
+  "resourceType": "Patient",
+  "id": "BlockMoM",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n<p>A maternity health information for a pregnant woman.</p>\n<p>LMP is 1st July, 2020. The woman has plan to take prenatal Iron and Folic acid, scheduled first antenatal, and plan for the second antenatal, subsequent and delivery </p>\n     </div>"
+  },
+  "identifier": [
+    {
+      "use": "usual",
+      "type": {
+        "coding": [
+          {
+            "system": "http://blockmom.com/CodeSystem/v1",
+            "code": "active"
+          }
+        ]
+      },
+      "system": "urn:oid:1.3.12.246.576.315.1.6",
+      "value": "Patient/94d9ae7112f9d8ecd81c2abbbfcdf810221f1db347acd3e2171f8bb4878bd155",
+      "period": {
+        "start": "2020-10-11"
+      },
+      "assigner": {
+        "display": "Digitalcare Tech."
+      }
+    }
+  ],
+  "active": true,
+  "name": [
+    {
+      "use": "official",
+      "family": "Chukwu",
+      "given": [
+        "Ngozi",
+        "Edidiong"
+      ]
+    },
+    {
+      "use": "usual",
+      "given": [
+        "Ngozi"
+      ]
+    },
+    {
+      "use": "maiden",
+      "family": "Bassey",
+      "given": [
+        "Ngozi",
+        "Edidiong"
+      ],
+      "period": {
+        "end": "2030"
+      }
+    }
+  ],
+  "telecom": [
+    {
+      "use": "home"
+    },
+    {
+      "system": "phone",
+      "value": "(234) 803 333 4444",
+      "use": "mobile",
+      "rank": 1
+    },
+    {
+      "system": "phone",
+      "value": "(234) 802 341 3333",
+      "use": "work",
+      "rank": 2
+    },
+    {
+      "system": "phone",
+      "value": "(232) 2222 3354",
+      "use": "old",
+      "period": {
+        "end": "2015"
+      }
+    }
+  ],
+  "gender": "female",
+  "birthDate": "1984-10-29",
+  "_birthDate": {
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/StructureDefinition/patient-birthTime",
+        "valueDateTime": "1984-10-29T13:50:40-01:00"
+      }
+    ]
+  },
+  "deceasedBoolean": false,
+  "address": [
+    {
+      "use": "home",
+      "type": "both",
+      "text": "12 New layout",
+      "line": [
+        "AI"
+      ],
+      "city": "Abakaliki",
+      "district": "",
+      "state": "Ebonyi",
+      "postalCode": "",
+      "period": {
+        "start": "1984-10-29"
+      }
+    }
+  ],
+  "contained": [
+    {
+      "resourceType": "Condition",
+      "id": "BlockMoM1",
+      "clinicalStatus": {
+        "coding": [
+          {
+            "system": "https://icd.who.int/browse10/2016/en#",
+            "code": "active"
+          }
+        ]
+      },
+      "verificationStatus": {
+        "coding": [
+          {
+            "system": "https://icd.who.int/browse10/2016/en#",
+            "code": "confirmed"
+          }
+        ]
+      },
+      "code": {
+        "text": "Prolonged second stage (of labour)",
+        "value": "O63.1"
+      },
+      "subject": {
+        "reference": "Patient/94d9ae7112f9d8ecd81c2abbbfcdf810221f1db347acd3e2171f8bb4878bd155",
+        "display": "Ngozi Chukwu"
+      }
+    },
+    {
+      "resourceType": "Practitioner",
+      "id": "NMCN018/57102bfcdf81878bd1512f9d894d9aeecd81c2abb347acd3e2171f8bb421f1db",
+      "name": [
+        {
+          "family": "Midwife",
+          "given": [
+            "Ngozi"
+          ]
+        }
+      ]
+    }
+  ],
+  "activity": [
+    {
+      "reference": {
+        "display": "Urgent referral to General hospital"
+      }
+    },
+    {
+      "extension": [
+        {
+          "valueUri": "http://blockmom.com/fhir/careplan/1andetails"
+        }
+      ],
+      "detail": {
+        "kind": "Encounter",
+        "code": {
+          "coding": [
+            {
+              "system": "http://blockmom.com/mySystem",
+              "code": "1an"
+            }
+          ],
+          "text": "First Antenatal encounter"
+        },
+        "status": "active",
+        "doNotPerform": false,
+        "scheduledTiming": {
+          "repeat": {
+            "boundsPeriod": {
+              "start": "2019-06-15",
+              "end": "2019-06-16"
+            }
+          }
+        },
+        "performer": [
+          {
+            "reference": "NMCN018/57102bfcdf81878bd1512f9d894d9aeecd81c2abb347acd3e2171f8bb421f1db",
+            "display": "Ngozi Midwife"
+          }
+        ],
+        "description": "The first antenatal encounter. "
+      }
+    },
+    {
+      "detail": {
+        "kind": "Appointment",
+        "code": {
+          "coding": [
+            {
+              "system": "http://blockmom.com/mySystem",
+              "code": "an"
+            }
+          ],
+          "text": "Follow-up Antenatal encounter"
+        },
+        "status": "scheduled",
+        "doNotPerform": false,
+        "scheduledTiming": {
+          "repeat": {
+            "boundsPeriod": {
+              "start": "2019-07-17",
+              "end": "2019-07-24"
+            }
+          }
+        },
+        "performer": [
+          {
+            "reference": "NMCN018/57102bfcdf81878bd1512f9d894d9aeecd81c2abb347acd3e2171f8bb421f1db",
+            "display": "Ngozi Midwife"
+          }
+        ],
+        "description": "The Second antenatal encounter has been scheduled. This is where a detailed physical examination is performed and the pregnanacy discussed with the mother-to-be."
+      }
+    }
+  ]
+}
