@@ -109,7 +109,7 @@
         <clinicalStatus>
             <coding>
                 <array>
-                    <system>https://icd.who.int/browse10/2016/en#</system>
+                    <system>https://icd.who.int/browse10/2019/en#</system>
                     <code>active</code>
                 </array>
             </coding>
@@ -117,14 +117,14 @@
         <verificationStatus>
             <coding>
                 <array>
-                    <system>https://icd.who.int/browse10/2016/en#</system>
+                    <system>https://icd.who.int/browse10/2019/en#</system>
                     <code>confirmed</code>
                 </array>
             </coding>
         </verificationStatus>
         <code>
-            <text>Prolonged second stage (of labour)</text>
-            <value>O63.1</value>
+            <text>Protozoal disease complicating pregnancy, childbirth, and the puerperium</text>
+            <value>O98.6</value>
         </code>
         <subject>
             <reference>Patient/94d9ae7112f9d8ecd81c2abbbfcdf810221f1db347acd3e2171f8bb4878bd155</reference>
